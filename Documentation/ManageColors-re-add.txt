@@ -1,0 +1,13 @@
+Manage Colors
+A list of colors available for this theme. This should be a list of key paired (key=item) colors, for example, blue=Blue. Separate items with a new line.
+
+black=Black
+calm=Calm
+dawn=Dawn
+earth=Earth
+flame=Flame
+leaf=Leaf
+night=Night
+sun=Sun
+twilight=Twilight
+water=Water

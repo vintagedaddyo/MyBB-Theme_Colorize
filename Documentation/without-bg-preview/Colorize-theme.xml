@@ -1,0 +1,3797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Colorize" version="1808">
+	<properties>
+		<templateset><![CDATA[17]]></templateset>
+		<editortheme><![CDATA[mybb.css]]></editortheme>
+		<imgdir><![CDATA[themes/colorize]]></imgdir>
+		<logo><![CDATA[themes/colorize/logo.png]]></logo>
+		<tablespace><![CDATA[5]]></tablespace>
+		<borderwidth><![CDATA[0]]></borderwidth>
+		<colors><![CDATA[a:10:{s:5:"black";s:6:"Black";s:4:"calm";s:5:"Calm";s:4:"dawn";s:5:"Dawn";s:5:"earth";s:6:"Earth";s:5:"flame";s:6:"Flame";s:4:"leaf";s:5:"Leaf";s:5:"night";s:6:"Night";s:3:"sun";s:4:"Sun";s:8:"twilight";s:9:"Twilight";s:5:"water";s:5:"Water";}]]></colors>
+		<disporder><![CDATA[a:18:{s:10:"global.css";i:1;s:6:"cp.css";i:2;s:10:"usercp.css";i:3;s:9:"modcp.css";i:4;s:16:"star_ratings.css";i:5;s:14:"showthread.css";i:6;s:17:"thread_status.css";i:7;s:8:"css3.css";i:8;s:15:"color_black.css";i:9;s:14:"color_calm.css";i:10;s:14:"color_dawn.css";i:11;s:15:"color_earth.css";i:12;s:15:"color_flame.css";i:13;s:14:"color_leaf.css";i:14;s:15:"color_night.css";i:15;s:13:"color_sun.css";i:16;s:18:"color_twilight.css";i:17;s:15:"color_water.css";i:18;}]]></disporder>
+	</properties>
+	<stylesheets>
+		<stylesheet name="cp.css" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: cp.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+.custom_theme{
+    background: url('themes/colorize/picker/cp/color-swatches.png') top left no-repeat;
+    float: left;
+}
+.custom_theme #colorpicker{
+    height: 12px;
+    width: 12px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.colorpicker {
+    width: 356px;
+    height: 176px;
+    overflow: hidden;
+    position: absolute;
+    background: url(themes/colorize/picker/cp/colorpicker_background.png);
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+    z-index: 9000;
+    margin-left: 36px;
+}
+.colour_instructions{
+    width: 134px;
+    height: 92px;
+    position: absolute;
+    left: 211px;
+    top: 47px;
+    text-align: left;
+    font-size: 10px;
+    color: #898989;
+}
+.colorpicker_color {
+    width: 150px;
+    height: 150px;
+    left: 14px;
+    top: 13px;
+    position: absolute;
+    background: #f00;
+    overflow: hidden;
+    cursor: crosshair;
+}
+.colorpicker_color div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background: url(themes/colorize/picker/cp/colorpicker_overlay.png);
+}
+.colorpicker_color div div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    overflow: hidden;
+    background: url(themes/colorize/picker/cp/colorpicker_select.gif);
+    margin: -5px 0 0 -5px;
+}
+.colorpicker_hue {
+    position: absolute;
+    top: 13px;
+    left: 171px;
+    width: 35px;
+    height: 150px;
+    cursor: n-resize;
+}
+.colorpicker_hue div {
+    position: absolute;
+    width: 35px;
+    height: 9px;
+    overflow: hidden;
+    background: url(themes/colorize/picker/cp/colorpicker_indic.gif) left top;
+    margin: -4px 0 0 0;
+    left: 0px;
+}
+.colorpicker_new_color {
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 213px;
+    top: 13px;
+    background: #f00;
+}
+.colorpicker_current_color {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    left: 283px;
+    top: 13px;
+    background: #f00;
+    display: none;
+}
+.colorpicker input {
+    background-color: transparent;
+    border: 1px solid transparent;
+    position: absolute;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #898989;
+    top: 4px;
+    right: 11px;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    height: 11px;
+}
+.colorpicker_hex {
+    position: absolute;
+    width: 72px;
+    height: 22px;
+    background: url(themes/colorize/picker/cp/colorpicker_hex.png) top;
+    left: 212px;
+    top: 142px;
+}
+.colorpicker_hex input {
+    right: 6px;
+}
+.colorpicker_field {
+    height: 22px;
+    width: 62px;
+    background-position: top;
+    position: absolute;
+    display: none; /* Hide colour boxes */
+}
+.colorpicker_field span {
+    position: absolute;
+    width: 12px;
+    height: 22px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    cursor: n-resize;
+}
+.colorpicker_rgb_r {
+    background-image: url(themes/colorize/picker/cp/colorpicker_rgb_r.png);
+    top: 52px;
+    left: 212px;
+}
+.colorpicker_rgb_g {
+    background-image: url(themes/colorize/picker/cp/colorpicker_rgb_g.png);
+    top: 82px;
+    left: 212px;
+}
+.colorpicker_rgb_b {
+    background-image: url(themes/colorize/picker/cp/colorpicker_rgb_b.png);
+    top: 112px;
+    left: 212px;
+}
+.colorpicker_hsb_h {
+    background-image: url(themes/colorize/picker/cp/colorpicker_hsb_h.png);
+    top: 52px;
+    left: 282px;
+}
+.colorpicker_hsb_s {
+    background-image: url(themes/colorize/picker/cp/colorpicker_hsb_s.png);
+    top: 82px;
+    left: 282px;
+}
+.colorpicker_hsb_b {
+    background-image: url(themes/colorize/picker/cp/colorpicker_hsb_b.png);
+    top: 112px;
+    left: 282px;
+}
+.colorpicker_submit {
+    position: absolute;
+    width: 56px;
+    height: 22px;
+    background: url(themes/colorize/picker/cp/colorpicker_submit.png) top;
+    left: 288px;
+    top: 142px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.colorpicker_focus {
+    background-position: center;
+}
+.colorpicker_hex.colorpicker_focus {
+    background-position: bottom;
+}
+.colorpicker_submit.colorpicker_focus {
+    background-position: bottom;
+}
+.colorpicker_slider {
+    background-position: bottom;
+}]]>
+		</stylesheet>
+		<stylesheet name="global.css" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: global.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+body {
+	background: #fff;
+	color: #333;
+	text-align: center;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	overflow-y: scroll;
+}
+
+
+a:link {
+	color: #0072BC;
+	text-decoration: none;
+}
+
+
+a:visited {
+	color: #0072BC;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: #0072BC;
+	text-decoration: underline;
+}
+
+#container {
+	color: #333;
+	text-align: left;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	min-width: 990px;
+}
+
+.wrapper {
+	width: 85%;
+	min-width: 970px;
+	max-width: 1500px;
+	margin: auto auto;
+}
+
+#logo {
+	background: #fff;
+	padding: 10px 0;
+/*	border-bottom: 1px solid #263c30; */
+}
+
+#content {
+	background: #fff;
+	width: auto !important;
+	padding: 20px 10px;
+	overflow: hidden;
+}
+
+#header ul.menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#header ul.menu li {
+	margin: 0 7px;
+	display: inline;
+}
+
+#header ul.menu li a {
+	padding-left: 20px;
+	background-image: url(themes/colorize/headerlinks_sprite.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	line-height: 16px;
+}
+
+#logo ul.top_links {
+	font-weight: bold;
+	text-align: right;
+	margin: -10px 5px 0 0;
+}
+
+#logo ul.top_links a.search {
+	background-position: 0 0;
+}
+
+#logo ul.top_links a.memberlist {
+	background-position: 0 -20px;
+}
+
+#logo ul.top_links a.calendar {
+	background-position: 0 -40px;
+}
+
+#logo ul.top_links a.help {
+	background-position: 0 -60px;
+}
+
+#logo ul.top_links a.portal {
+	background-position: 0 -180px;
+}
+
+#panel .upper a.logout {
+	font-weight: bold;
+	background: url(themes/colorize/headerlinks_sprite.png) right -80px no-repeat;
+	padding-right: 20px;
+	margin-left: 10px;
+}
+
+#panel .upper a.login,
+#panel .upper a.lost_password {
+	background: url(themes/colorize/headerlinks_sprite.png) 0 -100px no-repeat;
+	padding-left: 20px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+#panel .upper a.register {
+	background: url(themes/colorize/headerlinks_sprite.png) right -80px no-repeat;
+	padding-right: 20px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+#panel .lower ul.panel_links {
+	float: left;
+}
+
+#panel .lower ul.panel_links a.usercp {
+	background-position: 0 -120px;
+}
+
+#panel .lower ul.panel_links a.modcp {
+	background-position: 0 -140px;
+}
+
+#panel .lower ul.panel_links a.admincp {
+	background-position: 0 -160px;
+}
+
+#panel .lower ul.user_links {
+	float: right;
+}
+
+#panel .lower ul.user_links li a {
+	padding: 0;
+	background-image: none;
+}
+
+#panel .upper {
+	background: #0f0f0f;
+	color: #fff;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #000;
+	padding: 7px;
+	clear: both;
+}
+
+#panel .upper a:link,
+#panel .upper a:visited,
+#panel .upper a:hover,
+#panel .upper a:active {
+	color: #fff;
+}
+
+#panel .lower {
+	background: #efefef;
+	color: #999;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+
+#panel .lower a:link,
+#panel .lower a:visited,
+#panel .lower a:hover,
+#panel .lower a:active {
+	color: #666;
+}
+
+#search {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	float: right;
+	vertical-align: middle;
+}
+
+#search input.button,
+#search input.textbox {
+	border-color: #000;
+}
+
+#search input.button {
+	background: #0f0f0f url(themes/colorize/tcat.png) repeat-x;
+	color: #fff;
+}
+
+#search input {
+	margin: -3px 0;
+}
+
+#quick_login .remember_me input {
+	vertical-align: middle;
+	margin: -3px 0 0 5px;
+}
+
+#footer {
+	clear: both;
+}
+
+#footer ul.menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#footer ul.menu li {
+	margin: 0 5px;
+	display: inline;
+}
+
+#footer .upper {
+	background: #efefef;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
+	padding: 6px;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+#footer a:link,
+#footer a:visited,
+#footer a:hover,
+#footer a:active {
+	color: #000;
+}
+
+#footer .upper .language {
+	float: right;
+	margin: -1px;
+	margin-left: 15px;
+}
+
+#footer .upper .language select {
+	border-color: #ccc;
+}
+
+#footer .upper .theme {
+	float: right;
+	margin: -1px;
+	margin-left: 15px;
+}
+
+#footer .upper .theme select {
+	border-color: #ccc;
+}
+
+#footer .upper ul.bottom_links {
+	float: left;
+	margin: 4px 0 0 0;
+}
+
+#footer .lower {
+	color: #666;
+	padding: 6px 6px 12px 6px;
+	overflow: hidden;
+	font-size: 11px;
+}
+
+#footer .lower a:link,
+#footer .lower a:visited {
+	color: #444;
+	font-weight: bold;
+}
+
+#footer .lower a:hover,
+#footer .lower a:active {
+	color: #333;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#footer .lower #current_time {
+	float: right;
+	color: #888;
+}
+
+#debug {
+	float: right;
+	text-align: right;
+	margin-top: 20px;
+	font-size: 11px;
+}
+
+.scaleimages img {
+	max-width: 100%;
+}
+
+.forum_status {
+	height: 30px;
+	width: 30px;
+	background: url(themes/colorize/forum_icon_sprite.png) no-repeat 0 0;
+	display: inline-block;
+}
+
+.forum_on {
+	background-position: 0 0;
+}
+
+.forum_off {
+	background-position: 0 -30px;
+}
+
+.forum_offlock {
+	background-position: 0 -60px;
+}
+
+.forum_offlink {
+	background-position: 0 -90px;
+}
+
+.subforumicon {
+	height: 10px;
+	width: 10px;
+	display: inline-block;
+	margin: 0 5px;
+	background: url(themes/colorize/mini_status_sprite.png) no-repeat 0 0;
+}
+
+.subforum_minion {
+	background-position: 0 0;
+}
+
+.subforum_minioff {
+	background-position: 0 -10px;
+}
+
+.subforum_miniofflock {
+	background-position: 0 -20px;
+}
+
+.subforum_miniofflink {
+	background-position: 0 -30px;
+}
+
+table {
+	color: #333;
+	font-size: 13px;
+}
+
+.tborder {
+	background: #fff;
+	width: 100%;
+	margin: auto auto;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+
+.tfixed {
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+.thead {
+	background: #0066a2;
+	color: #ffffff;
+	border-bottom: 1px solid #263c30;
+	padding: 8px;
+}
+
+.thead a:link {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.thead a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.thead a:hover,
+.thead a:active {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.tcat {
+	background: #0f0f0f url(themes/colorize/tcat.png) repeat-x;
+	color: #fff;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #000;
+	padding: 6px;
+	font-size: 12px;
+}
+
+.tcat a:link {
+	color: #fff;
+}
+
+.tcat a:visited {
+	color: #fff;
+}
+
+.tcat a:hover,
+.tcat a:active {
+	color: #fff;
+}
+
+.trow1 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow_shaded {
+	background: #ffdde0;
+	border: 1px solid;
+	border-color: #fff #ffb8be #ffb8be #fff;
+}
+
+.no_bottom_border {
+	border-bottom: 0;
+}
+
+.post.unapproved_post {
+	background: #ffdde0;
+}
+
+.post.unapproved_post .post_author {
+	border-bottom-color: #ffb8be;
+}
+
+.post.classic.unapproved_post .post_author {
+	border-color: #ffb8be;
+}
+
+.post.unapproved_post .post_controls {
+	border-top-color: #ffb8be;
+}
+
+.trow_deleted,
+.post.deleted_post {
+	background: #E8DEFF;
+}
+
+.trow_selected,
+tr.trow_selected td {
+	background: #FFFBD9;
+	color: #333;
+	border-right-color: #F7E86A;
+	border-bottom-color: #F7E86A;
+}
+
+.trow_selected a:link,
+.trow_selected a:visited,
+.trow_selected a:hover,
+.trow_selected a:active {
+	color: #333;
+}
+
+.trow_sep {
+	background: #ddd;
+	color: #333;
+	border-bottom: 1px solid #c5c5c5;
+	padding: 6px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.tfoot {
+	border-top: 1px solid #fff;
+	padding: 6px;
+	background: #ddd;
+	color: #000;
+}
+
+.tfoot a:link {
+	color: #000;
+	text-decoration: none;
+}
+
+.tfoot a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+.tfoot a:hover,
+.tfoot a:active {
+	color: #000;
+	text-decoration: underline;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #263c30;
+}
+
+.bottommenu {
+	background: #efefef;
+	color: #333;
+	border: 1px solid #4874a3;
+	padding: 10px;
+}
+
+.navigation {
+	color: #333;
+	font-size: 12px;
+}
+
+.navigation a:link {
+	text-decoration: none;
+}
+
+.navigation a:visited {
+	text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a:active {
+	text-decoration: underline;
+}
+
+.navigation .active {
+	color: #333;
+	font-size: small;
+	font-weight: bold;
+}
+
+.smalltext {
+	font-size: 11px;
+}
+
+.largetext {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+fieldset {
+	padding: 12px;
+	border: 1px solid #ddd;
+	margin: 0;
+}
+
+fieldset.trow1,
+fieldset.trow2 {
+	border-color: #bbb;
+}
+
+fieldset.align_right {
+	text-align: right;
+}
+
+input.textbox {
+	background: #ffffff;
+	color: #333;
+	border: 1px solid #ccc;
+	padding: 3px;
+	outline: 0;
+	font-size: 13px;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+textarea {
+	background: #ffffff;
+	color: #333;
+	border: 1px solid #ccc;
+	padding: 2px;
+	line-height: 1.4;
+	outline: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+}
+
+select {
+	background: #ffffff;
+	padding: 3px;
+	border: 1px solid #ccc;
+	outline: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+}
+
+button,
+input.button {
+	padding: 3px 8px;
+	cursor: pointer;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	background: #eee url(themes/colorize/buttons_bg.png) repeat-x;
+	border: 1px solid #bbb;
+	color: #333;
+	outline: 0;
+}
+
+button:hover,
+input.button:hover {
+	border-color: #aaa;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+input.error, textarea.error, select.error {
+	border: 1px solid #f30;
+	color: #f30;
+}
+
+input.valid, textarea.valid, select.valid {
+	border: 1px solid #0c0;
+}
+
+label.error {
+	color: #f30;
+	margin: 5px;
+	padding: 0px;
+	display: block;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+form #message {
+	width: 500px;
+}
+
+.editor {
+	background: #f1f1f1;
+	border: 1px solid #ccc;
+}
+
+.editor_control_bar {
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+.post .editor_control_bar {
+	background: #f5f5f5;
+}
+
+.popup_menu {
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+.popup_menu .popup_item {
+	background: #efefef;
+	color: #333;
+}
+
+.popup_menu .popup_item:hover {
+	background: #0072BC;
+	color: #fff;
+}
+
+.trow_reputation_positive {
+	background: #ccffcc;
+}
+
+.trow_reputation_negative {
+	background: #ffcccc;
+}
+
+.reputation_positive {
+	color: green;
+}
+
+.reputation_neutral {
+	color: #444;
+}
+
+.reputation_negative {
+	color: red;
+}
+
+.repbox {
+	font-size:16px;
+	font-weight: bold;
+	padding:5px 7px 5px 7px;
+}
+
+._neutral {
+	background-color:#FAFAFA;
+	color: #999999;
+	border:1px solid #CCCCCC;
+}
+
+._minus {
+	background-color: #FDD2D1;
+	color: #CB0200;
+	border:1px solid #980201;
+}
+
+._plus {
+	background-color:#E8FCDC;
+	color: #008800;
+	border:1px solid #008800;
+}
+
+img {
+	border: none;
+}
+
+img.attachment {
+	border: 1px solid #E9E5D7;
+	padding: 2px;
+}
+
+hr {
+	background-color: #000000;
+	color: #000000;
+	height: 1px;
+	border: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+.hidden {
+	display: none;
+	float: none;
+	width: 1%;
+}
+
+.hiddenrow {
+	display: none;
+}
+
+.selectall {
+	background: #FFFBD9;
+	border-bottom: 1px solid #F7E86A;
+	color: #333;
+	text-align: center;
+}
+
+.expcolimage {
+	float: right;
+	width: auto;
+	vertical-align: middle;
+	margin-top: 3px;
+}
+
+.tcat_menu > .expcolimage {
+	margin-top: 0;
+}
+
+blockquote {
+	border: 1px solid #ccc;
+	margin: 0;
+	background: #fff;
+	padding: 10px;
+}
+
+blockquote cite {
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	font-style: normal;
+	display: block;
+	padding-bottom: 3px;
+	margin: 0 0 10px 0;
+}
+
+blockquote cite span {
+	float: right;
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+}
+
+blockquote cite span.highlight {
+	float: none;
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+.codeblock {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.codeblock .title {
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	padding-bottom: 3px;
+	margin: 0 0 10px 0;
+}
+
+.codeblock code {
+	overflow: auto;
+	height: auto;
+	max-height: 200px;
+	display: block;
+	font-family: Monaco, Consolas, Courier, monospace;
+	font-size: 13px;
+}
+
+.smilie {
+	vertical-align: middle;
+}
+
+.smilie_pointer {
+	cursor: pointer;
+}
+
+.separator {
+	margin: 5px;
+	padding: 0;
+	height: 0px;
+	font-size: 1px;
+	list-style-type: none;
+}
+
+.popup_menu .popup_item_container {
+	margin: 1px;
+	text-align: left;
+}
+
+.popup_menu .popup_item {
+	display: block;
+	padding: 4px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.popup_menu a.popup_item:hover {
+	text-decoration: none;
+}
+
+.subject_new {
+	font-weight: bold;
+}
+
+.highlight {
+	background: #FFFFCC;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.pm_alert {
+	background: #FFF6BF;
+	border: 1px solid #FFD324;
+	text-align: center;
+	padding: 5px 20px;
+	margin-bottom: 15px;
+	font-size: 11px;
+}
+
+.red_alert {
+	background: #FBE3E4;
+	border: 1px solid #A5161A;
+	color: #A5161A;
+	text-align: center;
+	padding: 5px 20px;
+	margin-bottom: 15px;
+	font-size: 11px;
+	word-wrap: break-word;
+}
+
+.red_alert a:link,
+.red_alert a:visited,
+.red_alert a:hover,
+.red_alert a:active {
+	color: #A5161A;
+}
+
+.high_warning {
+	color: #CC0000;
+}
+
+.moderate_warning {
+	color: #F3611B;
+}
+
+.low_warning {
+	color: #AE5700;
+}
+
+.imminent_banned {
+	color: #880000;
+}
+
+.high_banned {
+	color: #FF0000;
+}
+
+.moderate_banned {
+	color: #FF6600;
+}
+
+.low_banned {
+	color: #008000;
+}
+
+.online {
+	color: #15A018;
+}
+
+.offline {
+	color: #C7C7C7;
+}
+
+div.error {
+	padding: 5px 10px;
+	border-top: 2px solid #FFD324;
+	border-bottom: 2px solid #FFD324;
+	background: #FFF6BF;
+	font-size: 12px;
+}
+
+div.error p {
+	margin: 0;
+	color: #333;
+	font-weight: normal;
+}
+
+div.error p em {
+	font-style: normal;
+	font-weight: bold;
+	padding-left: 24px;
+	display: block;
+	color: #C00;
+	background: url(themes/colorize/error.png) no-repeat 0;
+}
+
+div.error ul {
+	margin-left: 24px;
+}
+
+.pagination {
+	font-size: 11px;
+	padding-top: 10px;
+	margin-bottom: 5px;
+}
+
+.tfoot .pagination,
+.tcat .pagination {
+	padding-top: 0;
+}
+
+.pagination .pages {
+	font-weight: bold;
+}
+
+.pagination .pagination_current,
+.pagination a {
+	padding: 3px 6px;
+	margin-bottom: 3px;
+}
+
+.pagination a {
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+}
+
+.pagination .pagination_current {
+	background: none;
+	color: #333;
+	border: none;
+	font-weight: bold;
+}
+
+.pagination a:hover {
+	background: #0072BC;
+	color: #fff;
+	border-color: #263c30;
+	text-decoration: none;
+}
+
+.pagination .go_page img {
+	margin-bottom: -4px;
+}
+
+.drop_go_page {
+	background: #f5f5f5;
+	padding: 4px;
+}
+
+.pagination_breadcrumb {
+	background-color: #efefef;
+	border: 1px solid #fff;
+	outline: 1px solid #ccc;
+	padding: 5px;
+	margin-top: 5px;
+	font-weight: normal;
+}
+
+.pagination_breadcrumb_link {
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.thread_legend,
+.thread_legend dd {
+	margin: 0;
+	padding: 0;
+}
+
+.thread_legend dd {
+	padding-bottom: 4px;
+	margin-right: 15px;
+}
+
+.thread_legend img {
+	margin-right: 4px;
+	vertical-align: bottom;
+}
+
+.forum_legend,
+.forum_legend dt,
+.forum_legend dd {
+	margin: 0;
+	padding: 0;
+}
+
+.forum_legend dd {
+	float: left;
+	margin-right: 10px;
+	margin-top: 7px;
+}
+
+.forum_legend dt {
+	margin-right: 10px;
+	float: left;
+}
+
+.success_message {
+	color: #00b200;
+	font-weight: bold;
+	font-size: 10px;
+	margin-bottom: 10px;
+}
+
+.error_message {
+	color: #C00;
+	font-weight: bold;
+	font-size: 10px;
+	margin-bottom: 10px;
+}
+
+#posts_container {
+	padding: 0;
+}
+
+.ignored_post {
+	border-top: 3px solid #333;
+	padding: 15px;
+}
+
+.ignored_post .show_ignored_post {
+	margin-top: -15px;
+}
+
+.ignored_post .show_ignored_post a.button span {
+	background-position: 0 -400px;
+}
+
+.post {
+	overflow: hidden;
+}
+
+.post.classic {
+	padding-top: 15px;
+}
+
+.post .post_author {
+	border-bottom: 1px solid #ccc;
+	border-top: 2px solid #ccc;
+	background: #f5f5f5;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.post.classic .post_author {
+	border: 1px solid #ddd;
+	float: left;
+	width: 15%;
+	margin: 0 1% 15px 0;
+	border-left: 0;
+	padding: 5px 1%;
+}
+
+.post .post_author .buddy_status {
+	vertical-align: middle;
+	margin-top: -4px;
+}
+
+.post .post_author div.author_avatar {
+	float: left;
+	margin-right: 3px;
+}
+
+.post.classic .post_author div.author_avatar {
+	float: none;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.post .post_author div.author_avatar img {
+	padding: 5px;
+	border: 1px solid #ddd;
+	background: #fff;
+}
+
+.post .post_author div.author_information {
+	float: left;
+	padding: 6px 8px;
+}
+
+.post.classic .post_author div.author_information {
+	float: none;
+	padding: 0;
+	text-align: center;
+}
+
+.post .post_author div.author_statistics {
+	float: right;
+	font-size: 11px;
+	padding: 3px 10px 3px 5px;
+	color: #666;
+	line-height: 1.3;
+}
+
+.post.classic .post_author div.author_statistics {
+	border-top: 1px dotted #ccc;
+	margin: 6px 0 0 0;
+	padding: 6px 6px 3px 6px;
+	float: none;
+}
+
+.post .post_head {
+	font-size: 11px;
+	padding-bottom: 4px;
+	border-bottom: 1px dotted #ddd;
+	margin-bottom: 4px;
+}
+
+.post .post_head span.post_date {
+	color: #666;
+}
+
+.post .post_head span.edited_post {
+	font-size: 10px;
+	color: #999;
+}
+
+.post .post_head span.edited_post a {
+	color: #666;
+}
+
+.post_body {
+	font-size: 14px;
+	padding: 12px 0;
+}
+
+.post.classic .post_content {
+	float: left;
+	width: 79%;
+	padding: 0 1% 5px 1%;
+}
+
+.post_content {
+	padding: 9px 10px 5px 10px;
+}
+
+.post_content .signature {
+	margin-top: 5px;
+	border-top: 1px dotted #ddd;
+	padding: 10px 0 4px 0;
+}
+
+.post .post_meta {
+	margin: 4px 0;
+	font-size: 11px;
+	color: #999;
+}
+
+.post .post_meta a:link,
+.post .post_meta a:visited {
+	color: #777;
+}
+
+.post .post_meta a:hover,
+.post .post_meta a:active {
+	color: #777;
+}
+
+.post_controls {
+	clear: both;
+	background: #f5f5f5;
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.postbit_buttons > a:link,
+.postbit_buttons > a:hover,
+.postbit_buttons > a:visited,
+.postbit_buttons > a:active {
+	display: inline-block;
+	padding: 2px 5px;
+	margin: 2px;
+	font-size: 11px;
+	background: #eee;
+	border: 1px solid #ccc;
+	color: #555;
+}
+
+.postbit_buttons > a:hover {
+	border-color: #bbb;
+}
+
+.postbit_buttons a span {
+	padding-left: 20px;
+	display: inline-block;
+	height: 16px;
+	background-image: url(themes/colorize/buttons_sprite.png);
+	background-repeat: no-repeat;
+}
+
+.postbit_buttons a.postbit_find span {
+	background-position: 0 0;
+}
+
+.postbit_buttons a.postbit_reputation_add span {
+	background-position: 0 -20px;
+}
+
+.postbit_buttons a.postbit_email span {
+	background-position: 0 -40px;
+}
+
+.postbit_buttons a.postbit_website span {
+	background-position: 0 -60px;
+}
+
+.postbit_buttons a.postbit_pm span {
+	background-position: 0 -80px;
+}
+
+.postbit_buttons a.postbit_quote span {
+	background-position: 0 -100px;
+}
+
+.postbit_buttons a.postbit_multiquote span {
+	background-position: 0 -120px;
+}
+
+.postbit_buttons a.postbit_multiquote_on span {
+	background-position: 0 -140px;
+}
+
+.postbit_buttons a.postbit_edit span {
+	background-position: 0 -160px;
+}
+
+.postbit_buttons a.postbit_qdelete span {
+	background-position: 0 -180px;
+}
+
+.postbit_buttons a.postbit_qrestore span {
+	background-position: 0 -200px;
+}
+
+.postbit_buttons a.postbit_report span {
+	background-position: 0 -220px;
+}
+
+.postbit_buttons a.postbit_warn span {
+	background-position: 0 -240px;
+}
+
+.postbit_buttons a.postbit_purgespammer span {
+	background-position: 0 -540px;
+}
+
+.postbit_buttons a.postbit_reply_pm span {
+	background-position: 0 -260px;
+}
+
+.postbit_buttons a.postbit_reply_all span {
+	background-position: 0 -280px;
+}
+
+.postbit_buttons a.postbit_forward_pm span {
+	background-position: 0 -300px;
+}
+
+.postbit_buttons a.postbit_delete_pm span {
+	background-position: 0 -320px;
+}
+
+a.button:link,
+a.button:hover,
+a.button:visited,
+a.button:active {
+	background: #0f0f0f url(themes/colorize/tcat.png) repeat-x;
+	color: #fff;
+	display: inline-block;
+	padding: 4px 8px;
+	margin: 2px 2px 6px 2px;
+	border: 1px solid #000;
+	font-size: 14px;
+}
+
+a.button.small_button {
+	font-size: 13px;
+	margin: 0;
+	padding: 3px 6px;
+}
+
+a.button span {
+	padding-left: 20px;
+	display: inline-block;
+	background-image: url(themes/colorize/buttons_sprite.png);
+	background-repeat: no-repeat;
+}
+
+a.button.new_thread_button span {
+	background-position: 0 -340px;
+}
+
+a.button.new_reply_button span {
+	background-position: 0 -360px;
+}
+
+a.button.closed_button span {
+	background-position: 0 -380px;
+}
+
+a.button.rate_user_button span {
+	background-position: 0 -400px;
+}
+
+a.button.add_buddy_button span {
+	background-position: 0 -440px;
+}
+
+a.button.remove_buddy_button span {
+	background-position: 0 -480px;
+}
+
+a.button.add_ignore_button span {
+	background-position: 0 -460px;
+}
+
+a.button.remove_ignore_button span {
+	background-position: 0 -500px;
+}
+
+a.button.report_user_button span {
+	background-position: 0 -520px;
+}
+
+.quick_jump {
+	background: url(themes/colorize/jump.png) no-repeat 0;
+	width: 13px;
+	height: 13px;
+	padding-left: 13px; /* amount of padding needed for image to fully show */
+	margin-top: -3px;
+	border: none;
+}
+
+.pollbar {
+	background: url(themes/colorize/pollbar.png) top left repeat-x;
+	border: 1px solid #3f3f3f;
+	height: 10px;
+}
+
+.pollbar .percent {
+	display: none;
+}
+
+.posticons_label {
+	white-space: nowrap;
+}
+
+/** jGrowl Start **/
+
+/** Special IE6 Style Positioning **/
+.ie6 {
+	position: absolute;
+}
+
+.ie6.top-right {
+	right: auto;
+	bottom: auto;
+	left: expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+.ie6.top-left {
+	left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+.ie6.bottom-right {
+	left: expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+.ie6.bottom-left {
+	left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+.ie6.center {
+	left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	width: 100%;
+}
+
+/** jGrowl Styling **/
+.jGrowl {
+	z-index: 9999;
+	color: #ffffff;
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	position: fixed;
+}
+.jGrowl.top-left {
+	left: 0px;
+	top: 0px;
+}
+.jGrowl.top-right {
+	right: 0px;
+	top: 0px;
+}
+.jGrowl.bottom-left {
+	left: 0px;
+	bottom: 0px;
+}
+.jGrowl.bottom-right {
+	right: 0px;
+	bottom: 0px;
+}
+.jGrowl.center {
+	top: 0px;
+	width: 50%;
+	left: 25%;
+}
+
+/** Cross Browser Styling **/
+
+.jGrowl.center .jGrowl-notification,
+.jGrowl.center .jGrowl-closer {
+	margin-left: auto;
+	margin-right: auto;
+}
+.jGrowl-notification {
+	background-color: transparent;
+	opacity: 0.9;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(0.9*100));
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(0.9*100));
+	zoom: 1;
+	width: 250px;
+	padding: 10px;
+	margin: 10px;
+	text-align: left;
+	display: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	word-break: break-all;
+}
+.jGrowl .jGrowl-notification {
+	min-height: 40px;
+}
+.jGrowl-notification .ui-state-highlight,
+.jGrowl-notification .ui-widget-content .ui-state-highlight,
+.jGrowl-notification .ui-widget-header .ui-state-highlight {
+	border: 1px solid #000;
+	background: #000;
+	color: #fff;
+}
+.jGrowl-notification .jGrowl-header {
+	font-weight: bold;
+	font-size: .85em;
+}
+.jGrowl-notification .jGrowl-close {
+	background-color: transparent;
+	color: inherit;
+	border: none;
+	z-index: 99;
+	float: right;
+	font-weight: bold;
+	font-size: 1em;
+	cursor: pointer;
+}
+.jGrowl-closer {
+	background-color: #000000;
+	opacity: 0.9;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(0.9*100));
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=(0.9*100));
+	zoom: 1;
+	width: 250px;
+	padding: 10px;
+	margin: 10px;
+	text-align: left;
+	display: none;
+	border-radius: 5px;
+	word-break: break-all;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+}
+.jGrowl-closer .ui-state-highlight,
+.jGrowl-closer .ui-widget-content .ui-state-highlight,
+.jGrowl-closer .ui-widget-header .ui-state-highlight {
+	border: 1px solid #000;
+	background: #000;
+	color: #fff;
+}
+
+.jGrowl .jGrowl-notification.jgrowl_success {
+    background: lightgreen;
+    border: 1px solid lightgreen;
+    color: #333;
+}
+
+.jGrowl .jGrowl-notification.jgrowl_error {
+    background: red;
+    border: 1px solid red;
+    color: #333;
+}
+
+.jGrowl .jGrowl-notification.jgrowl_process, .jGrowl .jGrowl-closer {
+    background: yellow;
+    border: 1px solid yellow;
+	color: #333;
+}
+
+/** Hide jGrowl when printing **/
+@media print {
+	.jGrowl {
+		display: none;
+	}
+}
+
+/** jGrowl End **/
+
+/** Modal Start **/
+
+.modal {
+	display: none;
+	width: 400px;
+	text-align: left;
+	background: #fff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	-ms-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 0 10px #000;
+	-moz-box-shadow: 0 0 10px #000;
+	-o-box-shadow: 0 0 10px #000;
+	-ms-box-shadow: 0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+.modal a.close-modal {
+	position: absolute;
+	top: -12.5px;
+	right: -12.5px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	background: url(themes/colorize/close.png) no-repeat 0 0;
+}
+
+.modal-spinner {
+	display: none;
+	width: 64px;
+	height: 64px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-right: -32px;
+	margin-top: -32px;
+	background: url(themes/colorize/spinner_big.gif) no-repeat center center;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	-ms-border-radius: 8px;
+	border-radius: 8px;
+}
+
+/** Modal End **/
+
+/** Impromptu Start **/
+
+/*! jQuery-Impromptu - v6.2.1 - 2015-05-10
+* http://trentrichardson.com/Impromptu
+* Copyright (c) 2015 Trent Richardson; Licensed MIT */
+
+.jqifade{
+	position: absolute;
+	background-color: #777777;
+}
+iframe.jqifade{
+	display:block;
+	z-index:-1;
+}
+div.jqi{
+	width: 400px;
+	max-width:90%;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	position: absolute;
+	background-color: #ffffff;
+	font-size: 11px;
+	text-align: left;
+	border: solid 1px #eeeeee;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 7px;
+}
+div.jqi .jqicontainer{
+}
+div.jqi .jqiclose{
+	position: absolute;
+	top: 4px; right: -2px;
+	width: 18px;
+	cursor: default;
+	color: #bbbbbb;
+	font-weight: bold;
+}
+div.jqi .jqistate{
+	background-color: #fff;
+}
+div.jqi .jqititle{
+	padding: 5px 10px;
+	font-size: 16px;
+	line-height: 20px;
+	border-bottom: solid 1px #eeeeee;
+}
+div.jqi .jqimessage{
+	padding: 10px;
+	line-height: 20px;
+	color: #444444;
+	overflow: auto;
+}
+div.jqi .jqibuttonshide{
+	display: none;
+}
+div.jqi .jqibuttons{
+	text-align: right;
+	margin: 0 -7px -7px -7px;
+	border-top: solid 1px #e4e4e4;
+	background-color: #f4f4f4;
+	border-radius: 0 0 6px 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+}
+div.jqi .jqibuttons button{
+	margin: 0;
+	padding: 15px 20px;
+	background-color: transparent;
+	font-weight: normal;
+	border: none;
+	border-left: solid 1px #e4e4e4;
+	color: #777;
+	font-weight: bold;
+	font-size: 12px;
+}
+div.jqi .jqibuttons button.jqidefaultbutton{
+	color: #489afe;
+}
+div.jqi .jqibuttons button:hover,
+div.jqi .jqibuttons button:focus{
+	color: #287ade;
+	outline: none;
+}
+div.jqi .jqibuttons button[disabled]{
+	color: #aaa;
+}
+.jqiwarning .jqi .jqibuttons{
+	background-color: #b95656;
+}
+
+/* sub states */
+div.jqi .jqiparentstate::after{
+	background-color: #777;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	content: '';
+	position: absolute;
+	top:0;left:0;bottom:0;right:0;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+div.jqi .jqisubstate{
+	position: absolute;
+	top:0;
+	left: 20%;
+	width: 60%;
+	padding: 7px;
+	border: solid 1px #eeeeee;
+	border-top: none;
+	border-radius: 0 0 6px 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+}
+div.jqi .jqisubstate .jqibuttons button{
+	padding: 10px 18px;
+}
+
+/* arrows for tooltips/tours */
+.jqi .jqiarrow{ position: absolute; height: 0; width:0; line-height: 0; font-size: 0; border: solid 10px transparent;}
+
+.jqi .jqiarrowtl{ left: 10px; top: -20px; border-bottom-color: #ffffff; }
+.jqi .jqiarrowtc{ left: 50%; top: -20px; border-bottom-color: #ffffff; margin-left: -10px; }
+.jqi .jqiarrowtr{ right: 10px; top: -20px; border-bottom-color: #ffffff; }
+
+.jqi .jqiarrowbl{ left: 10px; bottom: -20px; border-top-color: #ffffff; }
+.jqi .jqiarrowbc{ left: 50%; bottom: -20px; border-top-color: #ffffff; margin-left: -10px; }
+.jqi .jqiarrowbr{ right: 10px; bottom: -20px; border-top-color: #ffffff; }
+
+.jqi .jqiarrowlt{ left: -20px; top: 10px; border-right-color: #ffffff; }
+.jqi .jqiarrowlm{ left: -20px; top: 50%; border-right-color: #ffffff; margin-top: -10px; }
+.jqi .jqiarrowlb{ left: -20px; bottom: 10px; border-right-color: #ffffff; }
+
+.jqi .jqiarrowrt{ right: -20px; top: 10px; border-left-color: #ffffff; }
+.jqi .jqiarrowrm{ right: -20px; top: 50%; border-left-color: #ffffff; margin-top: -10px; }
+.jqi .jqiarrowrb{ right: -20px; bottom: 10px; border-left-color: #ffffff; }
+
+/** Impromptu End */
+
+]]>
+		</stylesheet>
+		<stylesheet name="css3.css" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: css3.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+tr td.trow1:first-child,
+tr td.trow2:first-child,
+tr td.trow_shaded:first-child {
+	border-left: 0;
+}
+
+tr td.trow1:last-child,
+tr td.trow2:last-child,
+tr td.trow_shaded:last-child {
+	border-right: 0;
+}
+
+.tborder {
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+
+.tborder tbody tr:last-child > td {
+	border-bottom: 0;
+}
+
+.tborder tbody tr:last-child > td:first-child {
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.tborder tbody tr:last-child > td:last-child {
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.thead {
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.thead_collapsed {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.thead_left {
+	-moz-border-radius-topright: 0;
+	-webkit-border-top-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.thead_right {
+	-moz-border-radius-topleft: 0;
+	-webkit-border-top-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.tcat_menu {
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
+.tborder tbody:nth-last-child(2) .tcat_collapse_collapsed {
+	-moz-border-radius-bottomleft: 6px !important;
+	-moz-border-radius-bottomright: 6px !important;
+	-webkit-border-bottom-left-radius: 6px !important;
+	-webkit-border-bottom-right-radius: 6px !important;
+	border-bottom-left-radius: 6px !important;
+	border-bottom-right-radius: 6px !important;
+}
+
+button,
+input.button,
+input.textbox,
+input.invalid_field,
+input.valid_field,
+select,
+textarea,
+.editor_control_bar,
+blockquote,
+.codeblock,
+fieldset,
+.pm_alert,
+.red_alert,
+.popup_menu,
+.postbit_buttons > a,
+a.button {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.post.classic .post_author {
+	-moz-border-radius: 0 6px 6px 0;
+	-webkit-border-radius: 0 6px 6px 0;
+	border-radius: 0 6px 6px 0;
+}
+
+.popup_menu .popup_item_container:first-child .popup_item {
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.popup_menu .popup_item_container:last-child .popup_item {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.pagination a {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.pollbar {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_black.css" attachedto="black" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_black.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #555;
+}
+
+#logo {
+	background: #202020 url('themes/colorize/colors/black_header.png') top left repeat-x;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel .upper {
+	background: #dcdbdc;
+	color: #000;
+	border-bottom: 1px solid #bbb;
+}
+
+#panel .upper a:link,
+#panel .upper a:visited,
+#panel .upper a:hover,
+#panel .upper a:active {
+	color: #000;
+}
+
+#panel input.textbox {
+	border-color: #ccc;
+}
+
+#panel input.button {
+	background: #202121 url('themes/colorize/colors/black_thead.png') top left repeat-x;
+	color: #fff;
+	border-color: #000;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #202121;
+}
+
+.forum_on {
+color: #202121;
+}
+
+.subforum_minion {
+	color: #202121;
+}
+
+.thead {
+	background: #202121;
+	border-bottom: 1px solid #000;
+}
+
+.tcat {
+	background: #dcdbdc url('themes/colorize/colors/black_tcat.png') repeat-x;
+	color: #000000;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #bbb;
+}
+
+.tcat a:link,
+.tcat a:visited,
+.tcat a:hover,
+.tcat a:active {
+	color: #000000;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #111;
+}
+
+.popup_menu .popup_item:hover {
+	background: #333;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #333;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #333;
+	color: #fff;
+	border-color: #000;
+}]]>
+		</stylesheet>
+		<stylesheet name="star_ratings.css" attachedto="forumdisplay.php|showthread.php" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: star_rating.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+.star_rating_container {
+   display:inline-block;
+   vertical-align:middle;
+   margin-right:6px;
+   float:right;
+   margin-top:6px;
+}
+
+.star_rating {
+     unicode-bidi: bidi-override;
+     direction: rtl;
+     list-style:none outside none;
+     margin:0;
+     padding:0;
+}
+
+.star_rating,
+.star_rating li a:hover,
+.star_rating .current_rating {
+  vertical-align: middle;      
+}
+
+td .star_rating {
+  margin-left: 0 auto;
+  width:120px;
+  position:relative;
+  left:-13px;
+}
+
+.star_rating li {
+  margin-left:5px;
+  float:right;
+  unicode-bidi: bidi-override;
+}
+
+.star_rating li a {
+  color:#b9b9b9;
+  text-decoration:none;
+}
+
+.star_rating li a {
+  font-size:0px;
+}
+
+.star_rating li a:before {
+  content: "\2605";
+  font-size:14px;
+}
+
+/*Firefox hack*/
+@-moz-document url-prefix() {
+.star_rating li a:before {
+  font-size:18px;
+  position:relative;
+  top:-5px;
+}
+}
+
+.star_rating_notrated li:hover a,
+.star_rating_notrated li:hover ~ li a {
+  color: #0066A2 !important;
+  cursor:pointer;
+}
+
+
+li.current_rating[style*="20"] ~ li a.one_star,
+li.current_rating[style*="40"] ~ li:nth-child(n+5) a,
+li.current_rating[style*="60"] ~ li:nth-child(n+4) a,
+li.current_rating[style*="80"] ~ li:nth-child(n+3) a,
+li[style*="100"]~ li:nth-child(n+2) a  {
+  color:#eab71f;
+}
+
+.star_rating .current_rating {
+  unicode-bidi: bidi-override;
+  direction: ltr;
+  display:none;
+  float:left;
+  text-align:right;
+  position:relative;
+  top:1px;
+  right:3px;
+}
+
+
+.inline_rating {
+  float: left;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.star_rating_success, .success_message {
+  color: #00b200;
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+td[id*="rating_table"] {
+text-align:center;
+margin:0 auto;
+}]]>
+		</stylesheet>
+		<stylesheet name="thread_status.css" attachedto="forumdisplay.php|usercp.php|search.php" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: thead_status.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+.thread_status {
+	display: inline-block;
+	height: 16px;
+	background-image: url(themes/colorize/folders_sprite.png);
+	background-repeat: no-repeat;
+	
+	width: 16px;
+}
+
+.thread_status.dot_folder {
+	background-position: 0 0;
+}
+
+.thread_status.dot_hotfolder {
+	background-position: 0 -20px;
+}
+
+.thread_status.dot_hotlockfolder {
+	background-position: 0 -40px;
+}
+
+.thread_status.dot_lockfolder {
+	background-position: 0 -60px;
+}
+
+.thread_status.dot_newfolder {
+	background-position: 0 -80px;
+}
+
+.thread_status.dot_newhotfolder {
+	background-position: 0 -100px;
+}
+
+.thread_status.dot_newhotlockfolder {
+	background-position: 0 -120px;
+}
+
+.thread_status.dot_newlockfolder {
+	background-position: 0 -140px;
+}
+
+.thread_status.folder {
+	background-position: 0 -160px;
+}
+
+.thread_status.hotfolder {
+	background-position: 0 -180px;
+}
+
+.thread_status.hotlockfolder {
+	background-position: 0 -200px;
+}
+
+.thread_status.lockfolder {
+	background-position: 0 -220px;
+}
+
+.thread_status.movefolder {
+	background-position: 0 -240px;
+}
+
+.thread_status.newfolder {
+	background-position: 0 -260px;
+}
+
+.thread_status.newhotfolder {
+	background-position: 0 -280px;
+}
+
+.thread_status.newhotlockfolder {
+	background-position: 0 -300px;
+}
+
+.thread_status.newlockfolder {
+	background-position: 0 -320px;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: showthread.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+ul.thread_tools,
+ul.thread_tools li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.thread_tools li {
+	padding-left: 24px;
+	padding-bottom: 4px;
+	margin-bottom: 3px;
+	font-size: 11px;
+	background-image: url(themes/colorize/showthread_sprite.png);
+	background-repeat: no-repeat;
+}
+
+ul.thread_tools li.printable {
+	background-position: 0 0;
+}
+
+ul.thread_tools li.sendthread {
+	background-position: 0 -20px;
+}
+
+ul.thread_tools li.subscription_add {
+	background-position: 0 -40px;
+}
+
+ul.thread_tools li.subscription_remove {
+	background-position: 0 -60px;
+}
+
+ul.thread_tools li.poll {
+	background-position: 0 -80px;
+}
+
+.showthread_spinner {
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	padding: 20px;
+	
+	width: 100%;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_calm.css" attachedto="calm" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_calm.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #48715b;
+}
+
+#logo {
+	background: #385947 url(themes/colorize/colors/calm_header.png) top left repeat-x;
+	border-bottom: 1px solid #263c30;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #385947 url(themes/colorize/colors/calm_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #385947;
+}
+
+.forum_on {
+color: #385947;
+}
+
+.subforum_minion {
+	color: #385947;
+}
+
+.thead {
+	background: #385947;
+	color: #ffffff;
+	border-bottom: 1px solid #263c30;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #263c30;
+}
+
+.popup_menu .popup_item:hover {
+	background: #48715b;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #48715b;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #48715b;
+	color: #fff;
+	border-color: #263c30;
+}]]>
+		</stylesheet>
+		<stylesheet name="color_dawn.css" attachedto="dawn" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_dawn.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #d56c2c;
+}
+
+#logo {
+	background: #d56c2c url(themes/colorize/colors/dawn_header.png) top left repeat-x;
+	border-bottom: 1px solid #011929;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #d56c2c url(themes/colorize/colors/dawn_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #000;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #d56c2c;
+}
+
+.forum_on {
+color: #d56c2c;
+}
+
+.subforum_minion {
+	color: #d56c2c;
+}
+
+.thead {
+	background: #d56c2c;
+	border-bottom: 1px solid #9a4e20;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #9a4e20;
+}
+
+.popup_menu .popup_item:hover {
+	background: #f2a555;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #f2a555;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #f2a555;
+	color: #fff;
+	border-color: #9a4e20;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_earth.css" attachedto="earth" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_earth.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #6d5545;
+}
+
+#logo {
+	background: #4a3a2e url(themes/colorize/colors/earth_header.png) top left repeat-x;
+	border-bottom: 1px solid #31261e;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #4a3b2f url(themes/colorize/colors/earth_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #4a3b2f;
+}
+
+.forum_on {
+color: #4a3b2f;
+}
+
+.subforum_minion {
+	color: #4a3b2f;
+}
+
+.thead {
+	background: #4a3b2f;
+	border-bottom: 1px solid #31261e;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #31261e;
+}
+
+.popup_menu .popup_item:hover {
+	background: #6d5545;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #6d5545;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #6d5545;
+	color: #fff;
+	border-color: #31261e;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_flame.css" attachedto="flame" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_flame.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #a20000;
+}
+
+#logo {
+	background: #750000 url(themes/colorize/colors/flame_header.png) top left repeat-x;
+	border-bottom: 1px solid #550000;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel input.button {
+	background: #750000 url(themes/colorize/colors/flame_thead.png) top left repeat-x;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #750000;
+}
+
+.forum_on {
+color: #750000;
+}
+
+.subforum_minion {
+	color: #750000;
+}
+
+.thead {
+	background: #750000;
+	border-bottom: 1px solid #550000;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #550000;
+}
+
+.popup_menu .popup_item:hover {
+	background: #a20000;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #a20000;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #a20000;
+	color: #fff;
+	border-color: #550000;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_leaf.css" attachedto="leaf" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_leaf.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #5aaf33;
+}
+
+#logo {
+	background: #386e21 url(themes/colorize/colors/leaf_header.png) top left repeat-x;
+	border-bottom: 1px solid #234615;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #386e21 url(themes/colorize/colors/leaf_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #386e21;
+}
+
+.forum_on {
+color: #386e21;
+}
+
+.subforum_minion {
+	color: #386e21;
+}
+
+.thead {
+	background: #386e21;
+	border-bottom: 1px solid #234615;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #234615;
+}
+
+.popup_menu .popup_item:hover {
+	background: #5aaf33;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #5aaf33;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #5aaf33;
+	color: #fff;
+	border-color: #234615;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_night.css" attachedto="night" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_night.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #023a61;
+}
+
+#logo {
+	background: #022338 url(themes/colorize/colors/night_header.png) top left repeat-x;
+	border-bottom: 1px solid #011929;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #022338 url(themes/colorize/colors/night_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #022338;
+}
+
+.forum_on {
+color: #022338;
+}
+
+.subforum_minion {
+	color: #022338;
+}
+
+.thead {
+	background: #022338;
+	border-bottom: 1px solid #011929;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #011929;
+}
+
+.popup_menu .popup_item:hover {
+	background: #023a61;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #023a61;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #023a61;
+	color: #fff;
+	border-color: #011929;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_sun.css" attachedto="sun" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_sun.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #555;
+}
+
+#logo {
+	background: #ffdd4d url(themes/colorize/colors/sun_header.png) top left repeat-x;
+	border-bottom: 1px solid #111;
+}
+
+#header ul.menu li a {
+	color: #000;
+}
+
+#panel input.button {
+	background: #ffdd4d url(themes/colorize/colors/sun_thead.png) top left repeat-x;
+	color: #000;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #000;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #000;
+}
+
+.forum_on {
+color: #ffdd4d;
+}
+
+.subforum_minion {
+	color: #ffdd4d;
+}
+
+.thead {
+	background: #ffdd4d;
+	border-bottom: 1px solid #ffaf1a;
+	color: #000;
+}
+
+.thead a:link,
+.thead a:visited,
+.thead a:hover,
+.thead a:active {
+	color: #000;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #ffaf1a;
+}
+
+.popup_menu .popup_item:hover {
+	background: #ffea9c;
+	color: #000;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #ffea9c;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #ffea9c;
+	color: #000;
+	border-color: #ffaf1a;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_twilight.css" attachedto="twilight" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_twilight.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #426276;
+}
+
+#logo {
+	background: #273a46 url(themes/colorize/colors/twilight_header.png) top left repeat-x;
+	border-bottom: 1px solid #1d2b34;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #273a46 url(themes/colorize/colors/twilight_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #273a46;
+}
+
+.forum_on {
+color: #273a46;
+}
+
+.subforum_minion {
+	color: #273a46;
+}
+
+.thead {
+	background: #273a46;
+	border-bottom: 1px solid #1d2b34;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #1d2b34;
+}
+
+.popup_menu .popup_item:hover {
+	background: #426276;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #426276;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #426276;
+	color: #fff;
+	border-color: #1d2b34;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="color_water.css" attachedto="water" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: color_water.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #2d9595;
+}
+
+#logo {
+	background: #1e6365 url(themes/colorize/colors/water_header.png) top left repeat-x;
+	border-bottom: 1px solid #133f41;
+}
+
+#header ul.menu li a {
+	color: #fff;
+}
+
+#panel input.button {
+	background: #1e6365 url(themes/colorize/colors/water_thead.png) top left repeat-x;
+}
+
+#topmenu ul li a {
+ border-bottom: 4px solid transparent;
+color: #fff;
+}
+
+#topmenu ul li a:hover {
+ border-bottom: 4px solid #ff7500;
+ color: #ff7500;
+}
+
+#topmenu ul li.selected a {
+color: #E6E6E6;
+border-bottom: 4px solid #ff7500;
+}
+
+#panel .lower ul.user_links li a:hover {
+   color: #1e6365;
+}
+
+.forum_on {
+color: #1e6365;
+}
+
+.subforum_minion {
+	color: #1e6365;
+}
+
+.thead {
+	background: #1e6365;
+	border-bottom: 1px solid #133f41;
+}
+
+.thead input.textbox,
+.thead select {
+	border: 1px solid #133f41;
+}
+
+.popup_menu .popup_item:hover {
+	background: #2d9595;
+	color: #fff;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #2d9595;
+	color: #fff;
+}
+
+.pagination a:hover {
+	background-color: #2d9595;
+	color: #fff;
+	border-color: #133f41;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: usercp.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+.usercp_nav_item {
+	display: block;
+	padding: 1px 0 1px 23px;
+	background-image: url(themes/colorize/usercp_sprite.png);
+	background-repeat: no-repeat;
+}
+
+.usercp_nav_composepm {
+	background-position: 0 0;
+}
+
+.usercp_nav_pmfolder {
+	background-position: 0 -20px;
+}
+
+.usercp_nav_sub_pmfolder {
+	padding-left: 40px;
+	background-position: 0 -40px;
+}
+
+.usercp_nav_trash_pmfolder {
+	padding-left: 40px;
+	background-position: 0 -60px;
+}
+
+.usercp_nav_pmtracking {
+	background-position: 0 -80px;
+}
+
+.usercp_nav_pmfolders {
+	background-position: 0 -100px;
+}
+
+.usercp_nav_profile {
+	background-position: 0 -120px;
+}
+
+.usercp_nav_email {
+	padding-left: 40px;
+	background-position: 0 -140px;
+}
+
+.usercp_nav_password {
+	padding-left: 40px;
+	background-position: 0 -160px;
+}
+
+.usercp_nav_username {
+	padding-left: 40px;
+	background-position: 0 -180px;
+}
+
+.usercp_nav_editsig {
+	padding-left: 40px;
+	background-position: 0 -200px;
+}
+
+.usercp_nav_avatar {
+	padding-left: 40px;
+	background-position: 0 -220px;
+}
+
+.usercp_nav_options {
+	background-position: 0 -240px;
+}
+
+.usercp_nav_usergroups {
+	background-position: 0 -260px;
+}
+
+.usercp_nav_editlists {
+	background-position: 0 -280px;
+}
+
+.usercp_nav_attachments {
+	background-position: 0 -300px;
+}
+
+.usercp_nav_drafts {
+	background-position: 0 -320px;
+}
+
+.usercp_nav_subscriptions {
+	background-position: 0 -340px;
+}
+
+.usercp_nav_fsubscriptions {
+	background-position: 0 -360px;
+}
+
+.usercp_nav_viewprofile {
+	background-position: 0 -380px;
+}
+
+.usercp_nav_home {
+	background-position: 0 -400px;
+}
+
+.usercp_notepad {
+	width: 99%;
+}
+
+.usercp_container {
+	margin: 5px;
+	padding: 8px;
+	border:1px solid #CCCCCC;
+}
+
+.pmspace {
+	float: right;
+	margin: -3px 5px;
+}
+
+.pmspace_container {
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 100px;
+	display: inline-block;
+}
+
+.pmspace_used {
+	display: inline-block;
+	color: #fff;
+	margin: -1px;
+}
+
+.pmspace_used.low {
+	border: 1px solid #0c5a01;
+	background: #167203;
+}
+
+.pmspace_used.medium {
+	background: #ff862b;
+	border: 1px solid #d7611e;
+}
+
+.pmspace_used.high {
+	background: #e73c3c;
+	border: 1px solid #c00;
+}
+
+.pmspace_unused {
+	display: inline-block;
+}
+
+.pmspace_text {
+	padding: 1px 5px;
+	display: inline-block;
+}
+
+.new_pm {
+	font-weight: bold;
+}
+
+]]>
+		</stylesheet>
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1808"><![CDATA[/*
+ * MyBB: Colorize Theme 
+ *
+ * File: modcp.css
+ * 
+ * Authors: iAndrew & vintagedaddyo
+ *
+ * MyBB Version: 1.8
+ *
+ * Theme Version: 1.0
+ * 
+ */
+
+.modcp_nav_item {
+	display: block;
+	padding: 1px 0 1px 23px;
+	background-image: url('themes/colorize/modcp_sprite.png');
+	background-repeat: no-repeat;
+}
+
+.modcp_nav_home {
+	background-position: 0 0;
+}
+
+.modcp_nav_announcements {
+	background-position: 0 -20px;
+}
+
+.modcp_nav_reports {
+	background-position: 0 -40px;
+}
+
+.modcp_nav_modqueue {
+	background-position: 0 -60px;
+}
+
+.modcp_nav_modlogs {
+	background-position: 0 -80px;
+}
+
+.modcp_nav_editprofile {
+	background-position: 0 -100px;
+}
+
+.modcp_nav_banning {
+	background-position: 0 -120px;
+}
+
+.modcp_nav_warninglogs {
+	background-position: 0 -140px;
+}
+
+.modcp_nav_ipsearch {
+	background-position: 0 -160px;
+}
+
+.modqueue_message {
+	overflow: auto;
+	max-height: 250px;
+}
+
+.modqueue_controls {
+	width: 270px;
+	float: right;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px;
+	font-weight: bold;
+}
+
+.modqueue_controls label {
+	margin-right: 8px;
+}
+
+.label_radio_ignore,
+.label_radio_delete,
+.label_radio_approve {
+	font-weight: bold;
+}
+
+.modqueue_meta {
+	color: #444;
+	font-size: 95%;
+	margin-bottom: 8px;
+}
+
+.modqueue_mass {
+	list-style: none;
+	margin: 0;
+	width: 150px;
+	padding: 0;
+}
+
+.modqueue_mass li {
+	margin-bottom: 4px;
+	padding: 0;
+}
+
+.modqueue_mass li a {
+	display: block;
+	padding: 4px;
+	border: 1px solid transparent;
+}
+
+.modqueue_mass li a:hover {
+	background: #efefef;
+	border: 1px solid #ccc;
+	text-decoration: none;
+}
+
+]]>
+		</stylesheet>
+	</stylesheets>
+	<templates>
+		<template name="footer" version="1808"><![CDATA[<debugstuff>
+	</div>
+</div>
+<div id="footer">
+	<div class="upper">
+		<div class="wrapper">
+			{$lang_select}
+			{$theme_select}
+			<ul class="menu bottom_links">
+				{$contact_us}
+				<li><a href="{$mybb->settings['homeurl']}">{$mybb->settings['homename']}</a></li>
+				<li><a href="#top">{$lang->bottomlinks_returntop}</a></li>
+				<li><a href="<archive_url>">{$lang->bottomlinks_litemode}</a></li>
+				<li><a href="{$mybb->settings['bburl']}/misc.php?action=syndication">{$lang->bottomlinks_syndication}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="lower">
+		<div class="wrapper">
+			<span id="current_time">{$lang->welcome_current_time}</span>
+			<span id="copyright">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				{$lang->powered_by} <a href="https://mybb.com" target="_blank">MyBB{$mybbversion}</a>, &copy; 2002-{$copy_year} <a href="https://mybb.com" target="_blank">MyBB Group</a>.
+				<!-- End powered by -->
+			</span>
+			<br />
+				<!-- Begin Theme Credits -->
+				
+				Theme by: <a href="https://community.mybb.com/user-84715.html" target="_blank"> iAndrew</a>
+				&amp; <a href="https://community.mybb.com/user-6029.html" target="_blank">vintagedaddyo</a>
+				
+                <!-- End Theme Credits -->	
+		</div>
+	</div>
+</div>
+<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE -->{$task_image}<!-- End task image code -->
+{$auto_dst_detection}
+</div>]]></template>
+		<template name="forumdisplay_thread_rating" version="1808"><![CDATA[<td align="center" class="{$bgcolor}{$thread_type_class}" id="rating_table_{$thread['tid']}">
+        
+<ul class="star_rating{$not_rated}" id="rating_thread_{$thread['tid']}">
+<li style="width: {$thread['width']}%" class="current_rating" id="current_rating_{$thread['tid']}">{$ratingvotesav}</li>
+<li><a class="five_stars" title="{$lang->five_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=5&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="four_stars" title="{$lang->four_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=4&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="three_stars" title="{$lang->three_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=3&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="two_stars" title="{$lang->two_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=2&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="one_star" title="{$lang->one_star}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=1&amp;my_post_key={$mybb->post_code}"></a></li>
+            </ul>
+
+
+
+        
+    </td>]]></template>
+		<template name="header" version="1808"><![CDATA[<div id="container">
+		<a name="top" id="top"></a>
+		<div id="header">
+			<div id="logo">
+				<div class="wrapper">
+					<a href="{$mybb->settings['bburl']}/index.php"><img src="{$theme['logo']}" alt="{$mybb->settings['bbname']}" title="{$mybb->settings['bbname']}" /></a>
+					<ul class="menu top_links">
+						{$menu_portal}
+						{$menu_search}
+						{$menu_memberlist}
+						{$menu_calendar}
+						<li><a href="{$mybb->settings['bburl']}/misc.php?action=help" class="help">{$lang->toplinks_help}</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="panel">
+				<div class="upper">
+					<div class="wrapper">
+						{$quicksearch}
+						{$welcomeblock}
+					<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
+				<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
+			</div>
+		</div>
+		<div id="content">
+			<div class="wrapper">
+				{$pm_notice}
+				{$bannedwarning}
+				{$bbclosedwarning}
+				{$unreadreports}
+				{$pending_joinrequests}
+				{$awaitingusers}
+				<navigation>
+				<br />]]></template>
+		<template name="headerinclude" version="1808"><![CDATA[<link rel="alternate" type="application/rss+xml" title="{$lang->latest_threads} (RSS 2.0)" href="{$mybb->settings['bburl']}/syndication.php" />
+<link rel="alternate" type="application/atom+xml" title="{$lang->latest_threads} (Atom 1.0)" href="{$mybb->settings['bburl']}/syndication.php?type=atom1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/jquery.js?ver=1806"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/jquery.plugins.min.js?ver=1806"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/general.js?ver=1807"></script>
+
+{$stylesheets}
+
+<!-- Colorpick -->
+<script type="text/javascript" src="{$mybb->asset_url}/themes/colorize/picker/js/colorpicker.js"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/themes/colorize/picker/js/skin.js"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/themes/colorize/picker/js/cookie.js"></script>
+
+<!-- Progress Bar -->
+<link type="text/css" rel="stylesheet" href="{$mybb->asset_url}/themes/colorize/progbar/nprogress.css">
+<script type="text/javascript" src="{$mybb->asset_url}/themes/colorize/progbar/nprogress.js"></script>
+
+<script>
+	NProgress.configure({ showSpinner: true });
+		$(document).ready(function() {
+			NProgress.start();
+			NProgress.done();
+		});
+</script>
+
+<script type="text/javascript">
+<!--
+	lang.unknown_error = "{$lang->unknown_error}";
+
+	lang.select2_match = "{$lang->select2_match}";
+	lang.select2_matches = "{$lang->select2_matches}";
+	lang.select2_nomatches = "{$lang->select2_nomatches}";
+	lang.select2_inputtooshort_single = "{$lang->select2_inputtooshort_single}";
+	lang.select2_inputtooshort_plural = "{$lang->select2_inputtooshort_plural}";
+	lang.select2_inputtoolong_single = "{$lang->select2_inputtoolong_single}";
+	lang.select2_inputtoolong_plural = "{$lang->select2_inputtoolong_plural}";
+	lang.select2_selectiontoobig_single = "{$lang->select2_selectiontoobig_single}";
+	lang.select2_selectiontoobig_plural = "{$lang->select2_selectiontoobig_plural}";
+	lang.select2_loadmore = "{$lang->select2_loadmore}";
+	lang.select2_searching = "{$lang->select2_searching}";
+
+	var cookieDomain = "{$mybb->settings['cookiedomain']}";
+	var cookiePath = "{$mybb->settings['cookiepath']}";
+	var cookiePrefix = "{$mybb->settings['cookieprefix']}";
+	var deleteevent_confirm = "{$lang->deleteevent_confirm}";
+	var removeattach_confirm = "{$lang->removeattach_confirm}";
+	var loading_text = '{$lang->ajax_loading}';
+	var saving_changes = '{$lang->saving_changes}';
+	var use_xmlhttprequest = "{$mybb->settings['use_xmlhttprequest']}";
+	var my_post_key = "{$mybb->post_code}";
+	var rootpath = "{$mybb->settings['bburl']}";
+	var imagepath = "{$theme['imgdir']}";
+  	var yes_confirm = "{$lang->yes}";
+	var no_confirm = "{$lang->no}";
+	var MyBBEditor = null;
+	var spinner_image = "{$theme['imgdir']}/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+// -->
+</script>]]></template>
+		<template name="header_welcomeblock_member" version="1808"><![CDATA[<!-- Continuation of div(class="upper") as opened in the header template -->
+	<span class="welcome">{$lang->welcome_back} <a href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="logout">{$lang->welcome_logout}</a></span>
+	</div>
+</div>
+<div class="lower">
+	<div class="wrapper">
+		
+		<ul class="menu panel_links">
+			<span class="custom_theme"><input type="text" id="colorpicker" ></span>
+			<li><a href="{$mybb->settings['bburl']}/usercp.php" class="usercp">{$lang->welcome_usercp}</a></li>
+			{$modcplink}
+			{$admincplink}
+		</ul>
+		<ul class="menu user_links">
+			<li><a href="#" onclick="MyBB.popupWindow('{$mybb->settings['bburl']}/misc.php?action=buddypopup&modal=1', null, true); return false;">{$lang->welcome_open_buddy_list}</a></li>
+			<li><a href="{$mybb->settings['bburl']}/search.php?action=getnew">{$lang->welcome_newposts}</a></li>
+			<li><a href="{$mybb->settings['bburl']}/search.php?action=getdaily">{$lang->welcome_todaysposts}</a></li>
+			<li><a href="{$mybb->settings['bburl']}/private.php">{$lang->welcome_pms}</a> {$lang->welcome_pms_usage}</li>
+		</ul>
+	</div>
+
+	<br class="clear" />
+</div>]]></template>
+		<template name="showthread_ratethread" version="1808"><![CDATA[<div class="star_rating_container">
+        <script type="text/javascript" src="jscripts/rating.js?ver=1400"></script>
+        <div id="success_rating_{$thread['tid']}" style="float: left; padding-top: 2px; padding-right: 10px;">&nbsp;</div>
+<strong style="float: left; padding-right: 10px;">{$lang->thread_rating}</strong>
+        <div class="inline_rating">
+
+<ul class="star_rating{$not_rated}" id="rating_thread_{$thread['tid']}">
+<li style="width: {$thread['width']}%" class="current_rating" id="current_rating_{$thread['tid']}">{$ratingvotesav}</li>
+<li><a class="five_stars" title="{$lang->five_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=5&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="four_stars" title="{$lang->four_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=4&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="three_stars" title="{$lang->three_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=3&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="two_stars" title="{$lang->two_stars}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=2&amp;my_post_key={$mybb->post_code}"></a></li>
+<li><a class="one_star" title="{$lang->one_star}" href="./ratethread.php?tid={$thread['tid']}&amp;rating=1&amp;my_post_key={$mybb->post_code}"></a></li>
+            </ul>
+        </div>
+</div>]]></template>
+	</templates>
+</theme>

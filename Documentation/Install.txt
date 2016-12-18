@@ -1,0 +1,10 @@
+
+1.) After downloading the Theme unpack it (with 7-Zip for example)
+
+2.) Upload the contents of "Upload" into your forums main directory.
+
+3.) Go to the Admin Control Panel under Themes > Import
+
+4.) Search for the XML File titled “Colorize-theme.xml" in the theme folder found on your computer and click the Button "Import Theme" this will upload the file from your computer to your forum.
+
+5.) Now have fun with your forum!
